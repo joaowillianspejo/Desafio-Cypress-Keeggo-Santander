@@ -24,11 +24,8 @@ jobs:
       - name: 📦 Instalar Dependências
         run: npm install
 
-      - name: ▶️ Subir o Sistema
-        run: npm start
-
-      - name: 🧪 Executar Testes UI
-        run: npx test:ui
+      - name: 🧪 Subir Sistema e Executar Testes UI
+        run: ci:test:ui
 
       - name: 📁 Salvar Vídeos (se houver)
         if: always()
@@ -59,11 +56,8 @@ jobs:
       - name: 📦 Instalar Dependências
         run: npm install
 
-      - name: ▶️ Subir o Sistema
-        run: npm start
-
-      - name: 🧪 Executar Testes API
-        run: npx test:api
+      - name: 🧪 Subir Sistema e Executar Testes API
+        run: ci:test:api
 
       - name: 📁 Salvar Vídeos (se houver)
         if: always()

@@ -9,7 +9,9 @@
     "cy:open": "cypress open",
     "test": "cypress run",
     "test:api": "cypress run --spec \"cypress/e2e/api\"",
-    "test:ui": "cypress run --spec \"cypress/e2e/ui\""
+    "test:ui": "cypress run --spec \"cypress/e2e/ui\"",
+    "ci:test:ui": "start-server-and-test start http://localhost:3000 test:ui",
+    "ci:test:api": "start-server-and-test start http://localhost:3000 test:api"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +31,8 @@
     "@faker-js/faker": "^9.9.0",
     "cypress": "^15.5.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-plugin-api": "^2.11.2"
+    "cypress-plugin-api": "^2.11.2",
+    "start-server-and-test": "^2.1.2"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
