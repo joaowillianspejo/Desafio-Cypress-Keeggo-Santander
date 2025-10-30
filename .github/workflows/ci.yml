@@ -1,0 +1,80 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout do código
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: 📦 Instalar Dependências
+        run: npm install
+
+      - name: ▶️ Subir o Sistema
+        run: npm start
+
+      - name: 🧪 Executar Testes UI
+        run: npx test:ui
+
+      - name: 📁 Salvar Vídeos (se houver)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-videos
+          path: cypress/videos
+
+      - name: 📁 Salvar Screenshots (se falhar)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-screenshots
+          path: cypress/screenshots
+
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout do código
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: 📦 Instalar Dependências
+        run: npm install
+
+      - name: ▶️ Subir o Sistema
+        run: npm start
+
+      - name: 🧪 Executar Testes API
+        run: npx test:api
+
+      - name: 📁 Salvar Vídeos (se houver)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-videos
+          path: cypress/videos
+
+      - name: 📁 Salvar Screenshots (se falhar)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-screenshots
+          path: cypress/screenshots
