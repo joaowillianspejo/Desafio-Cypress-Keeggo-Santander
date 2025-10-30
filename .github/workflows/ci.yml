@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: 🧪 Subir Sistema e Executar Testes UI
-        run: ci:test:ui
+        run: npx ci:test:ui
 
       - name: 📁 Salvar Vídeos (se houver)
         if: always()
@@ -57,7 +57,7 @@ jobs:
         run: npm install
 
       - name: 🧪 Subir Sistema e Executar Testes API
-        run: ci:test:api
+        run: npx ci:test:api
 
       - name: 📁 Salvar Vídeos (se houver)
         if: always()
