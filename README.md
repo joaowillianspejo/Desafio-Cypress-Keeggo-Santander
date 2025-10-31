@@ -41,7 +41,7 @@ A documentação funciona em: http://localhost:3000/api-docs/
 
 Em um novo terminal, na pasta do projeto, rode os seguintes comandos:
 
-#### 🧪 Para rodar os testes via inteface do Cypress
+#### 🧪 Para rodar os testes via interface do Cypress
 ```
 npx cy:open
 ```
