@@ -39,6 +39,25 @@ A documentação funciona em: http://localhost:3000/api-docs/
 
 ### Testes:
 
+#### 📁 Estrutura de pastas
+
+```
+Desafio-Cypress-Keeggo-Santander/
+├─ cypress/
+│  ├─ e2e/
+│  │  ├─ api/               # 🟠 API - Testes de API
+│  │  │  └─ features/
+│  │  └─ ui/                # 🔵 UI - Teste de UI
+│  │     └─ features/
+│  ├─ fixtures/
+│  ├─ support/
+│  │  ├─ commands.js
+│  │  └─ e2e.js
+├─ cypress.config.js        # Configuração do Cypress
+├─ package-lock.json
+└─ package.json
+```
+
 Em um novo terminal, na pasta do projeto, rode os seguintes comandos:
 
 #### 🧪 Para rodar os testes via interface do Cypress
